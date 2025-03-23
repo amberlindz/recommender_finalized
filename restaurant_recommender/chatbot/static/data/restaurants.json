@@ -1,0 +1,209 @@
+{
+    "metadata": {
+      "total_restaurants": 26,
+      "neighborhoods": [
+        "Culver City",
+        "Downtown Los Angeles",
+        "East Hollywood",
+        "Echo Park",
+        "Fairfax District",
+        "Glassell Park",
+        "Highland Park",
+        "Hollywood",
+        "Koreatown",
+        "Lincoln Heights",
+        "Ocean Park",
+        "Silver Lake",
+        "Venice",
+        "West Hollywood",
+        "West Los Angeles",
+        "Westchester"
+      ],
+      "source": "cambermvp_nocuisine.xlsx",
+      "created_at": "2025-03-20T14:22:20.373Z"
+    },
+    "restaurants": [
+      {
+        "id": 1,
+        "name": "Established Today",
+        "address": "7707 Melrose Ave, Los Angeles, CA",
+        "neighborhood": "Fairfax District",
+        "website": "https://est.today/"
+      },
+      {
+        "id": 2,
+        "name": "Picnic Coffee",
+        "address": "3116 1/2 Sunset Blvd, Los Angeles, CA",
+        "neighborhood": "Silver Lake",
+        "website": "https://www.picniccoffee.la/"
+      },
+      {
+        "id": 3,
+        "name": "Tomat",
+        "address": "6261 W. 87th Street, Los Angeles, CA",
+        "neighborhood": "Westchester",
+        "website": "https://www.tomat.la/"
+      },
+      {
+        "id": 4,
+        "name": "honey hi",
+        "address": "1620 W Sunset Blvd, Los Angeles, CA",
+        "neighborhood": "Echo Park",
+        "website": "https://honeyhi.co/"
+      },
+      {
+        "id": 5,
+        "name": "Harriet's",
+        "address": "8490 Sunset Boulevard, West Hollywood, CA",
+        "neighborhood": "West Hollywood",
+        "website": "https://www.harrietsrooftop.com/"
+      },
+      {
+        "id": 6,
+        "name": "L'antica Pizzeria da Michele",
+        "address": "1534 N McCadden Place, Los Angeles, CA",
+        "neighborhood": "Hollywood",
+        "website": "https://damicheleusa.com/"
+      },
+      {
+        "id": 7,
+        "name": "LA HOMEFARM",
+        "address": "3389 Eagle Rock Blvd, Los Angeles, CA",
+        "neighborhood": "Glassell Park",
+        "website": "https://lahomefarm.com/"
+      },
+      {
+        "id": 8,
+        "name": "Calabama",
+        "address": "6751 Santa Monica Blvd, Los Angeles, CA",
+        "neighborhood": "Hollywood",
+        "website": "https://calabama.la/pages/about"
+      },
+      {
+        "id": 9,
+        "name": "Modu Cafe",
+        "address": "5805 York Blvd Unit A, Los Angeles, CA",
+        "neighborhood": "Highland Park",
+        "website": "https://www.moducafe.com/"
+      },
+      {
+        "id": 10,
+        "name": "Mother Wolf",
+        "address": "1545 Wilcox Ave, Los Angeles, CA",
+        "neighborhood": "Hollywood",
+        "website": "https://www.motherwolfla.com/"
+      },
+      {
+        "id": 11,
+        "name": "The Social Club",
+        "address": "1640 N Spring St, Los Angeles, CA",
+        "neighborhood": "Lincoln Heights",
+        "website": "https://www.thesocialclub.com/"
+      },
+      {
+        "id": 12,
+        "name": "The Grove",
+        "address": "189 The Grove Dr, Los Angeles, CA",
+        "neighborhood": "Fairfax District",
+        "website": "https://thegrovela.com/dining/"
+      },
+      {
+        "id": 13,
+        "name": "Helms Bakery",
+        "address": "3220 Helms Avenue, Los Angeles, CA 90034",
+        "neighborhood": "Culver City",
+        "website": "https://helmsbakery.la/"
+      },
+      {
+        "id": 14,
+        "name": "Kiff Kafe + Wine Bar",
+        "address": "12229 West Pico Blvd, Los Angeles, CA 90064",
+        "neighborhood": "West Los Angeles",
+        "website": "https://www.kiffkafe.com/"
+      },
+      {
+        "id": 15,
+        "name": "Ettore Vino e Cucina",
+        "address": "6333 W 3rd St, Stall #120, Los Angeles, CA 90036",
+        "neighborhood": "Fairfax District",
+        "website": "https://farmersmarketla.com/merchants/ettore-vino-cucina"
+      },
+      {
+        "id": 16,
+        "name": "Edgemar Restaurant + Lounge",
+        "address": "2435 Main St, Santa Monica, CA 90405",
+        "neighborhood": "Ocean Park",
+        "website": "https://www.edgemar.la/"
+      },
+      {
+        "id": 17,
+        "name": "Olive and James Cafe Tea",
+        "address": "7473 Melrose Ave, Los Angeles, CA 90046",
+        "neighborhood": "Fairfax District",
+        "website": "https://www.oliveandjamescafe.com/"
+      },
+      {
+        "id": 18,
+        "name": "Olivetta",
+        "address": "9010 Melrose Avenue, West Hollywood, CA 90069",
+        "neighborhood": "West Hollywood",
+        "website": "https://www.olivetta.la/"
+      },
+      {
+        "id": 19,
+        "name": "Fountain Grains & Greens",
+        "address": "4850 Fountain Ave, Los Angeles, CA 90029",
+        "neighborhood": "East Hollywood",
+        "website": "https://www.eatatfountain.com/"
+      },
+      {
+        "id": 20,
+        "name": "Good Friend Coffee",
+        "address": "874 N Virgil Ave, Los Angeles, CA 90029",
+        "neighborhood": "East Hollywood",
+        "website": "https://www.goodfriendcoffee.com/"
+      },
+      {
+        "id": 21,
+        "name": "RVR",
+        "address": "1305 Abbot Kinney Blvd, Venice, CA 90291",
+        "neighborhood": "Venice",
+        "website": "https://www.rvr.la/"
+      },
+      {
+        "id": 22,
+        "name": "STAGGER COFFEE",
+        "address": "3069 1/2 W. 8th Street, Los Angeles, CA 90005",
+        "neighborhood": "Koreatown",
+        "website": "https://www.yelp.com/biz/stagger-coffee-los-angeles"
+      },
+      {
+        "id": 23,
+        "name": "Lost DTLA",
+        "address": "718 S Hill Street, Los Angeles, CA 90014",
+        "neighborhood": "Downtown Los Angeles",
+        "website": "https://www.getlostdtla.com/"
+      },
+      {
+        "id": 24,
+        "name": "LITTLE RIPPER",
+        "address": "4155 Verdugo Rd, Los Angeles, CA 90065",
+        "neighborhood": "Glassell Park",
+        "website": "https://www.littleripper.la/"
+      },
+      {
+        "id": 25,
+        "name": "Luv2eat Thai Bistro",
+        "address": "6660 W Sunset Blvd #P, Los Angeles, CA 90028",
+        "neighborhood": "Hollywood",
+        "website": "https://luv2eatthaibistro.cyou/"
+      },
+      {
+        "id": 26,
+        "name": "com•pan•ion",
+        "address": "1700 Lincoln Blvd, Los Angeles, CA",
+        "neighborhood": "Venice",
+        "website": "https://companion.la/"
+      }
+    ]
+  }

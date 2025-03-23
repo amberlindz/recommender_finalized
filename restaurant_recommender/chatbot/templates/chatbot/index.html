@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA Restaurant Recommender</title>
+    
+    <!-- Leaflet for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <style>
+        :root {
+            --camber-orange: #FF5A00;
+            --camber-light-orange: #FF8C46;
+            --camber-green: #4B8F61;
+            --camber-light-green: #9CD1AC;
+            --camber-bg: #FAFAFA;
+            --camber-text: #333333;
+            --camber-border: #DDDDDD;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--camber-bg);
+            color: var(--camber-text);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Sidebar with map */
+        .sidebar {
+            width: 35%;
+            background-color: white;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+        
+        .sidebar-header {
+            padding: 15px;
+            background-color: var(--camber-green);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .map-container {
+            flex-grow: 1;
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .neighborhood-filters {
+            padding: 10px;
+            background-color: white;
+            border-top: 1px solid var(--camber-border);
+        }
+        
+        .neighborhood-filters select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--camber-border);
+            border-radius: 4px;
+        }
+        
+        /* Main chat area */
+        .chat-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .chat-header {
+            padding: 15px;
+            background-color: var(--camber-orange);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            align-self: flex-end;
+            background-color: var(--camber-light-orange);
+            color: white;
+            border-radius: 18px 18px 0 18px;
+            padding: 12px 15px;
+        }
+        
+        .bot-message {
+            align-self: flex-start;
+            background-color: var(--camber-light-green);
+            color: var(--camber-text);
+            border-radius: 18px 18px 18px 0;
+            padding: 12px 15px;
+        }
+        
+        .chat-input {
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid var(--camber-border);
+            display: flex;
+        }
+        
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid var(--camber-border);
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        
+        .chat-input button {
+            background-color: var(--camber-orange);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .chat-input button i {
+            margin-left: 5px;
+        }
+        
+        /* Mobile responsiveness */
+        #toggle-sidebar {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                transform: translateX(-100%);
+                z-index: 1000;
+                width: 80%;
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            #toggle-sidebar {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar with map -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>Restaurant Locations</h3>
+            <button id="close-sidebar"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+        <div class="neighborhood-filters">
+            <select id="neighborhood-filter">
+                <option value="">All Neighborhoods</option>
+                <!-- Neighborhoods will be populated via JavaScript -->
+            </select>
+        </div>
+    </div>
+    
+    <!-- Main chat container -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <button id="toggle-sidebar"><i class="fas fa-map-marker-alt"></i></button>
+            <div class="logo"><i class="fas fa-utensils"></i> LA Food Guide</div>
+            <div>Restaurant Recommendation Chatbot</div>
+        </div>
+        
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                Hello! I'm LA Food Guide. I can help you find great restaurants in Los Angeles. What are you looking for today?
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Ask about restaurants in LA...">
+            <button id="send-button">Send <i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/map.js' %}"></script>
+    <script src="{% static 'js/chatbot.js' %}"></script>
+</body>
+</html>
